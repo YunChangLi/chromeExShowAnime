@@ -1,0 +1,36 @@
+{
+  "name": "Show Anime Girl",
+  "version": "1.0",
+  "description": "you will see an anime girl in your chrome",
+  "manifest_version": 2,
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "storage"
+
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [ "<all_urls>" ],
+      "js": [ "content.js" ]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    "*.gif"
+  ],
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+
+}
